@@ -1,0 +1,1 @@
+To get the original project running drag the res directory up into the default directory and add "res/" to the path strings for the image files.
