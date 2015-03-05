@@ -44,8 +44,8 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 	private String impHeader = "";
 	private boolean parsingFile = false;
 
-	public String imageFile = "res/dgg1.png";
-	public String imageFile2 = "res/dggtr.png";
+	public String imageFile = "dgg1.png";
+	public String imageFile2 = "dggtr.png";
 	public BufferedImage dggridImage;
 	public BufferedImage dggridImage2;
 

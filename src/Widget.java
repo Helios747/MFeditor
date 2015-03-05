@@ -134,8 +134,8 @@ public class Widget extends JPanel{
 
 
 
-				new ParameterChoice("dggrid_operation", "specifies the operation to be performed by this run of DGGRID", G, true, true, new String[]{"GENERATE_GRID", "OUTPUT_STATS", "BIN_POINT_VALS", "BIN_POINT_PRESENCE", "TRANSFORM_POINTS"}, 0),
-
+				new ParameterChoice("dggrid_operation", "specifies the operation to be performed by this run of DGGRID", G, true, true, new String[]{"GENERATE_GRID", "OUTPUT_STATS"}, 0),
+				
 				new ParameterChoice("dggs_type", "specify a preset DGG type", G, false, true, new String[]{"CUSTOM", "SUPERFUND", "ISEA3H", "ISEA4H", "ISEA43H", "ISEA4T", "ISEA4D", "FULLER3H", "FULLER4H", "FULLER43H", "FULLER4T", "FULLER4D"}, 0),
 
 				new ParameterInteger("precision", "number of digits to right of decimal point when outputting floating point numbers", G, true, 0, 7, 30),
@@ -217,26 +217,23 @@ public class Widget extends JPanel{
 				new ParameterInteger("shapefile_id_field_length", "number of digits in Shapefile output cell index strings", O1, true, 1, 11, 50),
 
 
-				new ParameterChoice("cell_output_type", "cell boundary output file format", O2, true, false, new String[]{"NONE", "GEOJSON", "AIGEN", "SHAPEFILE", "KML"}, 1),
+				new ParameterChoice("cell_output_type", "cell boundary output file format", O2, true, false, new String[]{"NONE", "AIGEN", "SHAPEFILE", "KML"}, 1),
 
 				new ParameterString("cell_output_file_name", "cell boundary output file name prefix", O2, "cells"),
 				
-				new ParameterString("kml_name", "name of KML", O2, ""),
 				
-				new ParameterString("kml_description", "description of KML", O2, ""),
-
 				new ParameterString("kml_default_color", "color of cell boundaries in KML output", O2, "ffffffff"),
 				
 				new ParameterInteger("kml_default_width", "width of cell boundaries in KML output", O2, true, 1, 4, 100),
 
 				
 
-				new ParameterChoice("point_output_type", "cell point output file format", O3, false, true, new String[]{"NONE", "GEOJSON", "AIGEN", "KML", "SHAPEFILE", "TEXT"}, 0),
+				new ParameterChoice("point_output_type", "cell point output file format", O3, false, true, new String[]{"NONE", "AIGEN", "KML", "SHAPEFILE", "TEXT"}, 0),
 				
 				new ParameterString("point_output_file_name", "cell point output file name prefix", O3, "centers"),
 
 
-				new ParameterChoice("randpts_output_type", "random points-in-cell output file format", O4, false, true, new String[]{"NONE", "GEOJSON", "AIGEN", "KML", "SHAPEFILE", "TEXT"}, 0),
+				new ParameterChoice("randpts_output_type", "random points-in-cell output file format", O4, false, true, new String[]{"NONE", "AIGEN", "KML", "SHAPEFILE", "TEXT"}, 0),
 
 				new ParameterString("randpts_output_file_name", "random points-in-cell output file name prefix", O4, "randPts"),
 
@@ -258,7 +255,7 @@ public class Widget extends JPanel{
 		parameter	parameter
 		position:	type:
 		
-		1).			String: 		a string that holds the NAME of the WIDGET that is to be DISABLED.
+		1).			String: 		a string that hold the NAME of the WIDGET that is to be DISABLED.
 		
 		2).			String[]: 	a string array of ALL of the VALUES that DISABLE the specific WIDGET.
 		
