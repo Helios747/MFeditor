@@ -13,7 +13,7 @@ public class MFeditor {
 	public static void main(String[] args) {
 		everything = new DGGMFGUI();
 		
-		win = new JFrame("MFeditor Version Beta 2.0");
+		win = new JFrame("MFeditor Version Beta 1.1");
 		win.setMinimumSize(new Dimension(400, 480));
 		win.add(everything);
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -26,10 +26,10 @@ public class Widget extends JPanel{
 	public static final String O3 = "Point Output";
 	public static final String O4 = "Random Points Output";
 	
-	// NEW TAB v6.2**************************************************************************************
+	// NEW TAB v1.1**************************************************************************************
 	public static final String TB1 = "Input";
 	public static final String TB2 = "Output";
-	// NEW TAB v6.2**************************************************************************************
+	// NEW TAB v1.1**************************************************************************************
 	
 	private static final int INTMAX = 2000000000;
 	private static final double DOUBLEMAX = 1000000000;
@@ -422,17 +422,21 @@ public class Widget extends JPanel{
 				
 				new DependencyList("input_files", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
 				
-				new DependencyList("bin_coverage", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
+				new DependencyList("bin_coverage", new String[]{"GENERATE_GRID", "OUTPUT_STATS", "TRANSFORM_POINTS" }, new String[]{"dggrid_operation", "dggrid_operation", "dggrid_operation"}, false),
 				
-				new DependencyList("cell_output_control", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
+				new DependencyList("cell_output_control", new String[]{"GENERATE_GRID", "OUTPUT_STATS", "TRANSFORM_POINTS" }, new String[]{"dggrid_operation", "dggrid_operation", "dggrid_operation"}, false),
 				
 				new DependencyList("output_address_type", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
 				
 				new DependencyList("output_file_name", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
 				
-				new DependencyList("output_count", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
+				new DependencyList("output_count", new String[]{"GENERATE_GRID", "OUTPUT_STATS", "TRANSFORM_POINTS", "BIN_POINT_VALS" }, new String[]{"dggrid_operation", "dggrid_operation", "dggrid_operation", "dggrid_operation"}, false),
 				
-				new DependencyList("output_delimiter", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false)
+				new DependencyList("output_delimiter", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
+				
+				new DependencyList("kml_name", new String[]{"KML"}, new String[]{"cell_output_type"}, true),
+				
+				new DependencyList("kml_description", new String[]{"KML"}, new String[]{"cell_output_type"}, true),
 				
 		};
 		return dep;
