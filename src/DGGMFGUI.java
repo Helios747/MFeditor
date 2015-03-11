@@ -589,9 +589,11 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 
 	private void showAbout () {
 		ImageIcon ic = new ImageIcon(dggridImage);
-		JOptionPane.showMessageDialog(null, "MFeditor  Version Beta 1.0\n" + "written by: Michael Paradis & Benjamin Harris\n" + 
-				"for making metafiles used by DGGRID\n" +
-				"released: August 2013", "about the developers", JOptionPane.INFORMATION_MESSAGE, ic);
+		JOptionPane.showMessageDialog(null, "MFeditor  Version Beta 1.0\n" + "written by: Michael Paradis & Benjamin Harris\n" +
+				"MFeditor  Version Beta 2.0\n"+
+				"changes made by: Jeremy Anders & Anthony Serna\n"+
+				"for making metafiles used by DGGRID v6.2\n" +
+				"released: March 2015", "about the developers", JOptionPane.INFORMATION_MESSAGE, ic);
 	} // end showAbout()
 
 } // end class DGGMFGUI

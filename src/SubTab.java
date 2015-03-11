@@ -50,7 +50,9 @@ public class SubTab extends JPanel {
 			
 			new SubTab(Widget.O4, ScrollTab.O, true),
 			
+			new SubTab(Widget.TB1, ScrollTab.TB, true),
 			
+			new SubTab(Widget.TB2, ScrollTab.TB, true)
 // to make: new SubTab("sub tab name", "tab assignment", it needs titled border),
 			
 		};

@@ -10,7 +10,12 @@ public class ScrollTab extends JPanel{
 	public static final String G = "General";
 	public static final String GS = "Grid Specification";
 	public static final String GG = "Grid Generation";
-	public static final String O = "Output";
+	public static final String O = "Grid Output";
+	
+	// NEW TAB v6.2**********************************************
+	public static final String TB = "Transform/Bin";
+	// NEW TAB v6.2**********************************************
+	
 	private String tabName;
 	private JScrollPane sp;
 	private JPanel pa;
@@ -30,7 +35,7 @@ public class ScrollTab extends JPanel{
 	public void add (JPanel p) { pa.add(p); } // end overriding add()
 	public static ScrollTab[] makeTabs () {
 		ScrollTab[] tabs = {
-
+					
 			new ScrollTab(G),
 
 			new ScrollTab(GS),
@@ -39,7 +44,9 @@ public class ScrollTab extends JPanel{
 
 			new ScrollTab(O),
 
-
+    // NEW TAB**************************************************************
+			new ScrollTab(TB)
+	// NEW TAB**************************************************************
 			
 		};
 		return tabs;
