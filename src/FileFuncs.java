@@ -30,6 +30,10 @@ public class FileFuncs {
 				String str = in.readLine();
 				while (str != null) {
 					strToParse += str + "\n";
+					if (str.contains("\" \""))
+					{
+						str = "input_delimiter \" \"";
+					}
 					str = in.readLine();
 				} // end while
 				in.close();
