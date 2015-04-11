@@ -368,9 +368,20 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 			if (sa[i].startsWith("#") && !widStart) {
 				impHeader += sa[i] + newLine;
 			} else if (!sa[i].startsWith("#") && !sa[i].equals("")) {
-				lin = sa[i].split(" ");
-				if (lin.length > 1 && lin[0] != null && lin[1] != null) {
 
+				// handle space delimiter correctly
+				boolean spaceDelim = false;
+				if (sa[i].indexOf("\" \"") != -1)
+				{
+					spaceDelim = true;
+					sa[i] = sa[i].replaceFirst("\" \"", "\"~\"");
+				}
+				lin = sa[i].split(" ");
+				if (spaceDelim)
+					lin[1] = "\" \"";
+				// end of space delimeter handling
+
+				if (lin.length > 1 && lin[0] != null && lin[1] != null) {
 					if (wMap.containsKey(lin[0])) {
 						tmp = wMap.get(lin[0]);
 						if (!tmp.setValueRemotely(lin[1])) {
