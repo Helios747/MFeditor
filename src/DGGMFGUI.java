@@ -4,12 +4,17 @@
 
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
+
+import javax.swing.text.DefaultCaret;
 import javax.swing.text.html.*;
+
 import java.awt.image.BufferedImage;
+
 import javax.imageio.ImageIO;
 
 
@@ -216,6 +221,11 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 		notice.setText(note);
 		note = "";
 		setButtons();
+		
+		//set cursor to the top of the metafile
+
+		DefaultCaret caret = (DefaultCaret) preview.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 	} // end setPanels()
 
 	private void addTabs () { 
