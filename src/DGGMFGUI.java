@@ -4,17 +4,12 @@
 
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
-
-import javax.swing.text.DefaultCaret;
 import javax.swing.text.html.*;
-
 import java.awt.image.BufferedImage;
-
 import javax.imageio.ImageIO;
 
 
@@ -219,9 +214,6 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 		preview.setText(printable);
 		note = "<html>Program Started <font color=red> " + bootError + "</font></html>";
 		notice.setText(note);
-		
-		DefaultCaret caret = (DefaultCaret) preview.getCaret();
-		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 		note = "";
 		setButtons();
 	} // end setPanels()
@@ -377,17 +369,7 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 				impHeader += sa[i] + newLine;
 			} else if (!sa[i].startsWith("#") && !sa[i].equals("")) {
 
-				// handle space delimiter correctly
-				boolean spaceDelim = false;
-				if (sa[i].indexOf("\" \"") != -1)
-				{
-					spaceDelim = true;
-					sa[i] = sa[i].replaceFirst("\" \"", "\"~\"");
-				}
-				lin = sa[i].split(" ");
-				if (spaceDelim)
-					lin[1] = "\" \"";
-				// end of space delimeter handling
+				lin = sa[i].split(" ", 2);
 
 				if (lin.length > 1 && lin[0] != null && lin[1] != null) {
 					if (wMap.containsKey(lin[0])) {
@@ -423,9 +405,7 @@ public class DGGMFGUI extends JPanel implements ActionListener{
 		if (isNerrs) note += nErrs + "<br>";
 		if (isVerrs) note += vErrs + "<br>";
 		if (isNerrs || isVerrs || isGerrs) note += "</font>";
-		
-		noticeSP.getVerticalScrollBar().setValue(0);
-		noticeSP.repaint();
+
 		return isVerrs || isNerrs || isGerrs;	
 	} // end parseFile()
 
