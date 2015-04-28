@@ -10,19 +10,6 @@ public class MFeditor {
 
 	public static DGGMFGUI everything;
 	public static JFrame win;
-	public static void main(String[] args) {
-		everything = new DGGMFGUI();
-		
-		win = new JFrame("MFeditor Version Beta 1.1");
-		win.setMinimumSize(new Dimension(400, 480));
-		win.add(everything);
-		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		win.getContentPane();
-		win.pack();
-		win.setVisible(true);
-		win.setLocationRelativeTo(null);
-		win.setIconImage(everything.dggridImage2);
-	} // end main()
 	
 	public static void passNote (String note) {
 		everything.setNote(note);
