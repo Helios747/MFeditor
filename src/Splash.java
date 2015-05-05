@@ -29,6 +29,8 @@ public class Splash extends JDialog {
 		try {
 			Splash dialog = new Splash();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setSize(425, 250);
+			dialog.setLocationRelativeTo(null);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,7 +71,7 @@ public class Splash extends JDialog {
 				MFeditor.everything = new DGGMFGUI();
 				MFeditor.win = new JFrame("MFeditor Version Beta 1.1");
 				MFeditor.win.setMinimumSize(new Dimension(400, 480));
-				MFeditor.win.add(MFeditor.everything);
+				MFeditor.win.getContentPane().add(MFeditor.everything);
 				MFeditor.win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				MFeditor.win.getContentPane();
 				MFeditor.win.pack();
@@ -89,7 +91,7 @@ public class Splash extends JDialog {
 				MFeditor.everything = new DGGMFGUI();
 				MFeditor.win = new JFrame("MFeditor Version Beta 1.1");
 				MFeditor.win.setMinimumSize(new Dimension(400, 480));
-				MFeditor.win.add(MFeditor.everything);
+				MFeditor.win.getContentPane().add(MFeditor.everything);
 				MFeditor.win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				MFeditor.win.getContentPane();
 				MFeditor.win.pack();
