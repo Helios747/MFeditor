@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.border.EmptyBorder;
@@ -22,10 +23,12 @@ public class Splash extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		try {
 			Splash dialog = new Splash();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -53,18 +56,18 @@ public class Splash extends JDialog {
 		}
 		
 		JLabel lblPichere = new JLabel(new ImageIcon(dggridImage2));
-		springLayout.putConstraint(SpringLayout.WEST, lblPichere, 126, SpringLayout.WEST, getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, lblPichere, 122, SpringLayout.WEST, getContentPane());
 		getContentPane().add(lblPichere);
 		
 		JLabel lblWelcomeToMfeditor = new JLabel("Welcome to MFEditor. Select a task");
-		springLayout.putConstraint(SpringLayout.NORTH, lblPichere, 24, SpringLayout.SOUTH, lblWelcomeToMfeditor);
 		springLayout.putConstraint(SpringLayout.NORTH, lblWelcomeToMfeditor, 10, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, lblWelcomeToMfeditor, 68, SpringLayout.WEST, getContentPane());
 		lblWelcomeToMfeditor.setFont(new Font("Tahoma", Font.BOLD, 16));
 		getContentPane().add(lblWelcomeToMfeditor);
 		
 		JButton btnCreateNewMetafile = new JButton("Create new Metafile");
-		springLayout.putConstraint(SpringLayout.SOUTH, btnCreateNewMetafile, -10, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.NORTH, lblPichere, 6, SpringLayout.SOUTH, btnCreateNewMetafile);
+		springLayout.putConstraint(SpringLayout.NORTH, btnCreateNewMetafile, 6, SpringLayout.SOUTH, lblWelcomeToMfeditor);
 		springLayout.putConstraint(SpringLayout.EAST, btnCreateNewMetafile, -10, SpringLayout.EAST, getContentPane());
 		btnCreateNewMetafile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -84,7 +87,7 @@ public class Splash extends JDialog {
 		getContentPane().add(btnCreateNewMetafile);
 		
 		JButton btnLoadExistingMetafile = new JButton("Load existing Metafile");
-		springLayout.putConstraint(SpringLayout.NORTH, btnLoadExistingMetafile, 0, SpringLayout.NORTH, btnCreateNewMetafile);
+		springLayout.putConstraint(SpringLayout.NORTH, btnLoadExistingMetafile, 6, SpringLayout.SOUTH, lblWelcomeToMfeditor);
 		springLayout.putConstraint(SpringLayout.WEST, btnLoadExistingMetafile, 10, SpringLayout.WEST, getContentPane());
 		btnLoadExistingMetafile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -103,7 +106,17 @@ public class Splash extends JDialog {
 			}
 		});
 		getContentPane().add(btnLoadExistingMetafile);
+		
+		JButton btnAbout = new JButton("About");
+		btnAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MFeditor.everything = new DGGMFGUI();
+				DGGMFGUI.about.doClick();
+			}
+		});
+		springLayout.putConstraint(SpringLayout.SOUTH, btnAbout, -10, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, btnAbout, -10, SpringLayout.EAST, getContentPane());
+		getContentPane().add(btnAbout);
 
 	}
-
 }
