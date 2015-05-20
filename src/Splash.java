@@ -32,7 +32,7 @@ public class Splash extends JDialog {
 		try {
 			Splash dialog = new Splash();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setSize(425, 250);
+			dialog.setSize(425, 350);
 			dialog.setLocationRelativeTo(null);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -47,7 +47,7 @@ public class Splash extends JDialog {
 		SpringLayout springLayout = new SpringLayout();
 		getContentPane().setLayout(springLayout);
 		BufferedImage dggridImage2 = null;
-		String imageFile2 = "res/dgg1.png";
+		String imageFile2 = "res/dgg.png";
 		try {
 			dggridImage2 = ImageIO.read(ResourceLoader.load(imageFile2));
 		} catch (IOException e1) {
@@ -56,7 +56,7 @@ public class Splash extends JDialog {
 		}
 		
 		JLabel lblPichere = new JLabel(new ImageIcon(dggridImage2));
-		springLayout.putConstraint(SpringLayout.WEST, lblPichere, 122, SpringLayout.WEST, getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, lblPichere, 117, SpringLayout.WEST, getContentPane());
 		getContentPane().add(lblPichere);
 		
 		JLabel lblWelcomeToMfeditor = new JLabel("Welcome to MFEditor. Select a task");
@@ -66,7 +66,7 @@ public class Splash extends JDialog {
 		getContentPane().add(lblWelcomeToMfeditor);
 		
 		JButton btnCreateNewMetafile = new JButton("Create new Metafile");
-		springLayout.putConstraint(SpringLayout.NORTH, lblPichere, 6, SpringLayout.SOUTH, btnCreateNewMetafile);
+		springLayout.putConstraint(SpringLayout.NORTH, lblPichere, 7, SpringLayout.SOUTH, btnCreateNewMetafile);
 		springLayout.putConstraint(SpringLayout.NORTH, btnCreateNewMetafile, 6, SpringLayout.SOUTH, lblWelcomeToMfeditor);
 		springLayout.putConstraint(SpringLayout.EAST, btnCreateNewMetafile, -10, SpringLayout.EAST, getContentPane());
 		btnCreateNewMetafile.addActionListener(new ActionListener() {
