@@ -205,6 +205,17 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 		buttonArea.add(Box.createRigidArea(new Dimension(1,10)));
 		
 		txtSearchForParameters = new JTextField();
+		txtSearchForParameters.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				txtSearchForParameters.setText("");
+			}
+		});
+		txtSearchForParameters.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showConfirmDialog(null, "hi!!!");
+			}
+		});
 		txtSearchForParameters.setText("Search for parameters...");
 		txtSearchForParameters.setMaximumSize( 
 			     new Dimension(300, txtSearchForParameters.getPreferredSize().height) );
