@@ -72,7 +72,7 @@ public class Splash extends JDialog {
 		btnCreateNewMetafile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MFeditor.everything = new DGGMFGUI();
-				MFeditor.win = new JFrame("MFeditor Version Beta 1.1");
+				MFeditor.win = new JFrame("MFeditor Version 1.1");
 				MFeditor.win.setMinimumSize(new Dimension(400, 480));
 				MFeditor.win.getContentPane().add(MFeditor.everything);
 				MFeditor.win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,7 +92,7 @@ public class Splash extends JDialog {
 		btnLoadExistingMetafile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MFeditor.everything = new DGGMFGUI();
-				MFeditor.win = new JFrame("MFeditor Version Beta 1.1");
+				MFeditor.win = new JFrame("MFeditor Version 1.1");
 				MFeditor.win.setMinimumSize(new Dimension(400, 480));
 				MFeditor.win.getContentPane().add(MFeditor.everything);
 				MFeditor.win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
