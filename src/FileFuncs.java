@@ -3,6 +3,7 @@
 // June 17, 2013
 
 import java.io.*;
+
 import javax.swing.*;
 
 public class FileFuncs {
@@ -25,6 +26,12 @@ public class FileFuncs {
 		if (result == JFileChooser.APPROVE_OPTION) {
 			try {
 				f = fc.getSelectedFile();
+				try {
+					Config conf = new Config();
+					conf.saveConfig("LoadPath", f.getAbsolutePath());
+				} catch (IOException e1) {
+
+				}
 				loadCurrentFile = f;
 				BufferedReader in = new BufferedReader( new FileReader(f));
 				String str = in.readLine();
@@ -59,6 +66,12 @@ public class FileFuncs {
 		if (result == JFileChooser.APPROVE_OPTION) {
 			try {
 				f = fc.getSelectedFile();
+				try {
+					Config conf = new Config();
+					conf.saveConfig("SavePath", f.getAbsolutePath());
+				} catch (IOException e1) {
+
+				}
 				saveCurrentFile = f;
 				PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(f)));
 				out.println(s);

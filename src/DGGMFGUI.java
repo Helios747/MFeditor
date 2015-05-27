@@ -347,23 +347,13 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 		} else if (src == save) {
 			formPrintable();
 			FileFuncs.saveFile(printable, sf);
-			try {
-				Config conf = new Config();
-				conf.saveConfig("SavePath", sf.getAbsolutePath());
-			} catch (IOException e1) {
 
-			}
 			
 		} else if (src == load) {
 			temp = FileFuncs.readInFile(f);
 			tempNote = note;
 			if (temp != null) {
-				try {
-					Config conf = new Config();
-					conf.saveConfig("LoadPath", f.getAbsolutePath());
-				} catch (IOException e1) {
 
-				}
 				resetAllToDefaults();
 				note = tempNote;
 				errorPresent = parseFile(temp);
@@ -508,8 +498,10 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 				setDefaultsToPresetDefaults(ptmp);
 			} // end if
 		} // end if
-
-		note += ("Parameter '" + name + "' is " + wtmp.getValue());
+		if (!name.equals("dggs_res_spec"))
+		{
+			note += ("Parameter '" + name + "' is " + wtmp.getValue());
+		}
 		if (wtmp.checkIfDefault()) note += ", which is the default value<br>";
 		else
 			note += "<br>";		
