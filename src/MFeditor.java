@@ -84,7 +84,7 @@ public class MFeditor extends JDialog {
 		btnCreateNewMetafile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MFeditor.everything = new DGGMFGUI();
-				MFeditor.win = new JFrame("MFeditor Version 1.1");
+				MFeditor.win = new JFrame("MFeditor Version 1.2");
 				MFeditor.win.setMinimumSize(new Dimension(400, 480));
 				MFeditor.win.getContentPane().add(MFeditor.everything);
 				MFeditor.win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
