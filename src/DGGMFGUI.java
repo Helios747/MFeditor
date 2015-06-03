@@ -48,7 +48,6 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 	private int numWidgets, numPresets, numTabs, numSubTabs;
 
 	private File f = null;
-	private File sf = null;
 	private String printable, note;
 	private String bootError = "";
 	private String impHeader = "";
@@ -107,10 +106,6 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 			{
 				f = new File(conf.strLoadPath);
 			}
-			if (!conf.strSavePath.equals("null"))
-			{
-				sf = new File(conf.strSavePath);
-			}
 		} catch (IOException e)
 		{
 			JOptionPane.showMessageDialog(null, "ERROR. Cannot load settings file. Disabling persistence.");
@@ -160,27 +155,7 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 		load = new JButton("Load Metafile");
 		load.setToolTipText("Press for dialog to load metafile from disk");
 		ifShowImpHead = new JCheckBox("Show Last Imported Header");
-		if (!bDisableFeatures)
-		{
-			Config conf = new Config();
-			
-			if (conf.bLastImportHeader)
-			{
-				ifShowImpHead.setSelected(true);
-			}
-			else
-			{
-				ifShowImpHead.setSelected(false);
-			}
-			if (conf.bShowDefaults)
-			{
-				ifShowDefaults.setSelected(true);
-			}
-		}
-		else
-		{
-			ifShowImpHead.setSelected(true);
-		}
+
 		showImpHead = true;
 		ifShowImpHead.setToolTipText("Check to display and output the header of the last \nloaded metafile (no effect if none have been loaded)");
 		about = new JButton("About");
@@ -276,6 +251,28 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 
 		DefaultCaret caret = (DefaultCaret) preview.getCaret();
 		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+		
+		if (!bDisableFeatures)
+		{
+			Config conf = new Config();
+			
+			if (conf.bLastImportHeader)
+			{
+				ifShowImpHead.doClick();
+			}
+			else
+			{
+				ifShowImpHead.setSelected(false);
+			}
+			if (conf.bShowDefaults)
+			{
+				ifShowDefaults.doClick();
+			}
+		}
+		else
+		{
+			ifShowImpHead.doClick();
+		}
 	} // end setPanels()
 
 	private void addTabs () { 
@@ -346,7 +343,7 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 			resetAllToDefaults();
 		} else if (src == save) {
 			formPrintable();
-			FileFuncs.saveFile(printable, sf);
+			FileFuncs.saveFile(printable, f);
 
 			
 		} else if (src == load) {

@@ -66,12 +66,6 @@ public class FileFuncs {
 		if (result == JFileChooser.APPROVE_OPTION) {
 			try {
 				f = fc.getSelectedFile();
-				try {
-					Config conf = new Config();
-					conf.saveConfig("SavePath", f.getAbsolutePath());
-				} catch (IOException e1) {
-
-				}
 				saveCurrentFile = f;
 				PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(f)));
 				out.println(s);

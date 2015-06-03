@@ -13,7 +13,6 @@ public class Config {
 
 	private String strConfigPath;
 	public String strLoadPath;
-	public String strSavePath;
 	public boolean bShowDefaults;
 	public boolean bLastImportHeader;
 
@@ -32,13 +31,13 @@ public class Config {
 		}
 		else
 		{
-			File theDir = new File(System.getProperty("user.home") + "/.mfeditor");
+			File theDir = new File(System.getProperty("user.home") + "//.mfeditor");
 			// if the directory does not exist, create it
 			if (!theDir.exists())
 			{
 				theDir.mkdir();
 			}
-			strConfigPath = System.getProperty("user.home") + "/.mfeditor" + "config.txt";		
+			strConfigPath = System.getProperty("user.home") + "/.mfeditor" + "/config.txt";		
 
 		}
 
@@ -53,10 +52,6 @@ public class Config {
 				if (arParsed[0].equals("LoadPath"))
 				{
 					strLoadPath = arParsed[1];
-				}
-				else if (arParsed[0].equals("SavePath"))
-				{
-					strSavePath = arParsed[1];
 				}
 				else if (arParsed[0].equals("ShowDefaults"))
 				{
@@ -89,12 +84,10 @@ public class Config {
 		{
 			PrintWriter writer = new PrintWriter(strConfigPath, "UTF-8");
 			writer.println("LoadPath=null");
-			writer.println("SavePath=null");
 			writer.println("ShowDefaults=false");
 			writer.println("LastImportHeader=true");
 			writer.close();
 			strLoadPath = null;
-			strSavePath = null;
 			bShowDefaults = false;
 			bLastImportHeader = true;
 		}
@@ -107,7 +100,6 @@ public class Config {
 
 	//	strString valid values:
 	//	LoadPath (String path)
-	//	SavePath (String path)
 	//	ShowDefaults (Boolean string)
 	//	ShowLastImportHeader (Boolean string)
 	//	THIS NEEDS IMPROVING FOR NEXT VERSION.
@@ -119,11 +111,6 @@ public class Config {
 		{
 			updateLine("LoadPath" + "=" + strLoadPath,"LoadPath" + "=" + strValue);
 			strLoadPath = strValue;
-		}
-		else if (strSetting.equals("SavePath"))
-		{
-			updateLine("SavePath" + "=" + strSavePath, "SavePath" + "=" + strValue);
-			strSavePath = strValue;
 		}
 		else if (strSetting.equals("ShowDefaults"))
 		{
