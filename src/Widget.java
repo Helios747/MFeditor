@@ -263,6 +263,8 @@ public class Widget extends JPanel{
 				new ParameterString("input_delimiter", "character that delimits address components and additional data in the input files", TB1, " "),
 				
 				new ParameterString("input_files", "name(s) of files containing lon/lat locations with associated values", TB1, "" ),
+				
+				new ParameterString("input_file_name", "name of input address file", TB1, "valsin.txt"),
 				//end sub-heading
 				
 				//Output sub-heading
@@ -420,7 +422,9 @@ public class Widget extends JPanel{
 				
 				new DependencyList("input_delimiter", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
 				
-				new DependencyList("input_files", new String[]{"GENERATE_GRID", "OUTPUT_STATS" }, new String[]{"dggrid_operation", "dggrid_operation"}, false),
+				new DependencyList("input_files", new String[]{"GENERATE_GRID", "OUTPUT_STATS", "TRANSFORM_POINTS"}, new String[]{"dggrid_operation", "dggrid_operation", "dggrid_operation"}, false),
+				
+				new DependencyList("input_file_name", new String[]{"GENERATE_GRID", "OUTPUT_STATS", "BIN_POINT_VALS", "BIN_POINT_PRESENCE"}, new String[]{"dggrid_operation", "dggrid_operation", "dggrid_operation", "dggrid_operation"}, false),
 				
 				new DependencyList("bin_coverage", new String[]{"GENERATE_GRID", "OUTPUT_STATS", "TRANSFORM_POINTS" }, new String[]{"dggrid_operation", "dggrid_operation", "dggrid_operation"}, false),
 				
