@@ -108,7 +108,7 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 			}
 		} catch (IOException e)
 		{
-			JOptionPane.showMessageDialog(null, "ERROR. Cannot load settings file. Disabling persistence.");
+			JOptionPane.showMessageDialog(null, "Error. Cannot load settings file. Settings will not be saved");
 			bDisableFeatures = true;
 		}
 		
@@ -498,10 +498,11 @@ public class DGGMFGUI extends JPanel implements ActionListener {
 		if (!name.equals("dggs_res_spec"))
 		{
 			note += ("Parameter '" + name + "' is " + wtmp.getValue());
+			if (wtmp.checkIfDefault()) note += ", which is the default value<br>";
+			else
+				note += "<br>";	
 		}
-		if (wtmp.checkIfDefault()) note += ", which is the default value<br>";
-		else
-			note += "<br>";		
+	
 		actionPerformed(e);
 	} // end performAction()
 
